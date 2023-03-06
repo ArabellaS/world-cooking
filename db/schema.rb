@@ -10,9 +10,82 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_06_134501) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_06_145925) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.text "content"
+    t.bigint "recipe_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_feedbacks_on_recipe_id"
+    t.index ["user_id"], name: "index_feedbacks_on_user_id"
+  end
+
+  create_table "flavor_profiles", force: :cascade do |t|
+    t.float "salty"
+    t.float "sweet"
+    t.float "umami"
+    t.float "sour"
+    t.float "spicy"
+    t.float "bitter"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_flavor_profiles_on_user_id"
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.float "lat"
+    t.float "lng"
+    t.string "city"
+    t.string "region"
+    t.string "country"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "quantities", force: :cascade do |t|
+    t.float "amount"
+    t.string "unit"
+    t.bigint "ingredient_id", null: false
+    t.bigint "recipe_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredient_id"], name: "index_quantities_on_ingredient_id"
+    t.index ["recipe_id"], name: "index_quantities_on_recipe_id"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.text "content"
+    t.bigint "place_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_recipes_on_place_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.bigint "recipe_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_tags_on_category_id"
+    t.index ["recipe_id"], name: "index_tags_on_recipe_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +99,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_134501) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "feedbacks", "recipes"
+  add_foreign_key "feedbacks", "users"
+  add_foreign_key "flavor_profiles", "users"
+  add_foreign_key "quantities", "ingredients"
+  add_foreign_key "quantities", "recipes"
+  add_foreign_key "recipes", "places"
+  add_foreign_key "tags", "categories"
+  add_foreign_key "tags", "recipes"
 end

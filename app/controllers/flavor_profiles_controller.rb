@@ -1,0 +1,2 @@
+class FlavorProfilesController < ApplicationController
+end
