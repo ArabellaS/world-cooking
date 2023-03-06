@@ -1,2 +1,15 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+<div class="ingredient-card">
+  <h2>Welcome to Indian cooking !</h2>
+  <p>It's characterized by a flavor profile that's sweet, sour, salty, spicy, bitter and astringent</p>
+  <h3>Pantry</h3>
+  <ul class="ingredients"><% @place.ingredients.each do |ingredient| %>
+    <li><%= ingredient.name %></li>
+  <% end %>
+  </ul>
+  <h3>Utensils</h3>
+  <ul class="utensils">
+
+  </ul>
+</div>
