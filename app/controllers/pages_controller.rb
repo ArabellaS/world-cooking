@@ -14,5 +14,6 @@ class PagesController < ApplicationController
     else
       @recipes = Recipe.all
     end
+
   end
 end

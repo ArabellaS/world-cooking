@@ -15,6 +15,14 @@
     <li><%= ingredient.name %></li>
   <% end %>
   </ul>
+  <h3>Pantry</h3>
+  <% if @place %>
+    <ul class="ingredients"><% @place.ingredients.each do |ingredient| %>
+      <li><%= ingredient.name %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <h3>Utensils</h3>
   <ul class="utensils">
 
   </ul>
