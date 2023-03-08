@@ -12,3 +12,8 @@ Place.create(country: "France", city: "Paris")
 Place.create(country: "France", city: "Toulouse")
 Place.create(country: "Italy", city: "Palermo")
 Place.create(country: "Italy", city: "Rome")
+
+
+Scraper::RecipesByCountryService.call('France')
+Scraper::RecipesByCountryService.call('Italy')
+Scraper::RecipesByCountryService.call('India')
