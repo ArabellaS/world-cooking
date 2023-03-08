@@ -47,6 +47,9 @@ gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
+
+#search (barre de recherche)
+gem "pg_search"
 gem "cloudinary"
 gem "devise"
 gem "autoprefixer-rails"
