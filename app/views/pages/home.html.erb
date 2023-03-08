@@ -4,14 +4,20 @@
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      <%= form_with url: recipes_path, method: :get, class: "form" do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a recipe"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
+      <div class="form">
+        <%= form_with url: recipes_path, method: :get, class: "search" do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control input",
+            placeholder: "Travel through your plate..."
+          %>
+          <div class="button">
+            <%= button_tag type: :submit do %>
+              <i class="fa-solid fa-magnifying-glass loupe"></i>
+             <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

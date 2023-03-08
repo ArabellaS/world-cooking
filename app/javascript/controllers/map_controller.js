@@ -1,8 +1,8 @@
 import { Controller } from "@hotwired/stimulus"
-// import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
 export default class extends Controller {
-  static values = { apiKey: String, markers: Array | null }
+  static values = { apiKey: String, markers: Array }
 
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
@@ -10,6 +10,8 @@ export default class extends Controller {
     this.map = new mapboxgl.Map({
       container: this.element,
       projection: projection,
+      center: [52.528594, -23.493070],
+      zoom: 1,
       style: "mapbox://styles/ceciles/clepszwio008w01pjarafjp5i"
     })
 
@@ -25,6 +27,7 @@ export default class extends Controller {
   }
 
   #addMarkersToMap() {
+
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
 
