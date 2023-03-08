@@ -27,11 +27,13 @@ class Scraper::RecipesByCountryService
         name = element.search(".card__title-text").text.strip
 
         details_url = element.attribute("href").value
-        # photo_url = element.search('img').first.attributes["data-src"].value
+        ## photo : ## photo_url = element.search('img').first.attributes["data-src"].value
 
-        # photo = URI.open(photo_url)
+        ## photo : ## photo = URI.open(photo_url)
 
         details_doc = Nokogiri::HTML.parse(URI.open(details_url).read, nil, "utf-8")
+
+        ######## Recipe ########
 
         directions = details_doc.search('.comp.recipe__steps.mntl-block')[0]
 
@@ -48,8 +50,9 @@ class Scraper::RecipesByCountryService
         end
 
         recipe = Recipe.create(name: name, content: content, place: @place)
-        # recipe.photo.attach(io: photo, filename: "#{recipe.name}_photo", content_type: 'image/*')
+        ## photo : ## recipe.photo.attach(io: photo, filename: "#{recipe.name}_photo", content_type: 'image/*')
 
+        ######## Ingredient & Quantity ########
 
         directions_ingre = details_doc.search('.comp.mntl-structured-ingredients')[0]
         
@@ -65,8 +68,24 @@ class Scraper::RecipesByCountryService
           next unless name.present?
 
           ingredient = Ingredient.find_or_create_by(name: name)
-          # ## Comment accéder à la recipe ?
+
           Quantity.create(unit: unit, amount: amount, ingredient: ingredient, recipe: recipe)
+        end
+
+        ######## Category ########
+
+        directions_cat = details_doc.search('.comp.article-preheading.mntl-block')[0]
+        
+        steps_cat = directions_cat.search('li')
+
+        steps_cat.each_with_index do |step, index|
+          category_content = step.search('span[class="link__wrapper"]')[0].try(:text).try(:strip)
+
+          # p category_content
+
+          next unless category_content.present? && category_content != "Recipes"
+
+          Category.find_or_create_by(content: category_content)
         end
 
       end
