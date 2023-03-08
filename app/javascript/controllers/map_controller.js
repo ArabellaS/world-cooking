@@ -6,16 +6,20 @@ export default class extends Controller {
 
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
-    console.log(this.apiKeyValue)
+    const projection = 'mercator'
     this.map = new mapboxgl.Map({
       container: this.element,
-      projection: 'Mercator',
-      center: [0, 0],
+      projection: projection,
       style: "mapbox://styles/ceciles/clepszwio008w01pjarafjp5i"
     })
 
+    console.log(projection)
     this.map.setRenderWorldCopies(false)
+    // disable map rotation using right click + drag
+    this.map.dragRotate.disable();
 
+    // disable map rotation using touch rotation gesture
+    this.map.touchZoomRotate.disableRotation();
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
   }
