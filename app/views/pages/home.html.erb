@@ -1,29 +1,17 @@
-<%= form_with url: recipes_path, method: :get, class: "d-flex" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a recipe"
+<div class="wrapper">
+  <div class="col-12">
+    <div id="map"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      <%= form_with url: recipes_path, method: :get, class: "form" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a recipe"
   %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<div class="ingredient-card">
-  <h2>Welcome to Indian cooking !</h2>
-  <p>It's characterized by a flavor profile that's sweet, sour, salty, spicy, bitter and astringent</p>
-  <ul class="ingredients"><% @place.ingredients.each do |ingredient| %>
-    <li><%= ingredient.name %></li>
   <% end %>
-  </ul>
-  <h3>Pantry</h3>
-  <% if @place %>
-    <ul class="ingredients"><% @place.ingredients.each do |ingredient| %>
-      <li><%= ingredient.name %></li>
-      <% end %>
-    </ul>
-  <% end %>
-  <h3>Utensils</h3>
-  <ul class="utensils">
-
-  </ul>
+    </div>
+  </div>
 </div>
