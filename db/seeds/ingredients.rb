@@ -1,13 +1,49 @@
-require "csv"
-
 Ingredient.destroy_all# if Rails.env.development?
 
-csv_text = File.read(Rails.root.join('db', 'csv', 'top-1k-ingredients.csv'))
+Ingredient.create!(
+  name: "bacon"
+)
 
-csv = CSV.parse(csv_text, :headers => false, :encoding => 'UTF-8')
+Ingredient.create!(
+  name: "cheese"
+)
 
-csv.each do |row|
-  Ingredient.create!(
-    name: row[0]
-  )
-end
+Ingredient.create!(
+  name: "onion"
+)
+
+Ingredient.create!(
+  name: "eggs"
+)
+
+Ingredient.create!(
+  name: "salt"
+)
+
+Ingredient.create!(
+  name: "white sugar"
+)
+
+Ingredient.create!(
+  name: "cayenne pepper"
+)
+
+Ingredient.create!(
+  name: "bacon"
+)
+
+Ingredient.create!(
+  name: "bacon"
+)
+
+Ingredient.create!(
+  name: "bacon"
+)
+
+Ingredient.create!(
+  name: "bacon"
+)
+
+Ingredient.create!(
+  name: "bacon"
+)

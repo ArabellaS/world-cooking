@@ -1,12 +1,16 @@
 require "open-uri"
 require "nokogiri"
 
-class ScrapeAllrecipesService
+class Scraper::RecipesByIngredientService
   def initialize(ingredient)
     @ingredient = ingredient
   end
 
-  def call
+  def self.call(ingredient)
+    new(ingredient).perform
+  end
+
+  def perform
     html = URI.open("https://www.allrecipes.com/search?q=#{@ingredient}").read
     # 1. Parse HTML
     doc = Nokogiri::HTML.parse(html, nil, "utf-8")

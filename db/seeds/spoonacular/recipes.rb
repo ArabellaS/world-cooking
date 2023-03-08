@@ -1,3 +1,7 @@
+# include ScrapeAllrecipesService::Helpers
+# ScrapeAllrecipesService.new("cheese").call
+
+
 Quantity.destroy_all# if Rails.env.development?
 Recipe.destroy_all# if Rails.env.development?
 Utensil.destroy_all# if Rails.env.development?

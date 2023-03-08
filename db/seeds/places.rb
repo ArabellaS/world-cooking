@@ -1,10 +1,31 @@
-require "faker"
+Place.destroy_all# if Rails.env.development?
 
-10.times do
-  Place.create!(
-    city: Faker::Address.city,
-    region: "Occitanie",
-    country: Faker::Address.country
-  )
-end
+Place.create!(
+  city: "Nancy",
+  region: "Lorraine",
+  country: "France"
+)
 
+Place.create!(
+  city: "Dijon",
+  region: "Bourgogne",
+  country: "France"
+)
+
+Place.create!(
+  city: "Toulouse",
+  region: "Occitanie",
+  country: "France"
+)
+
+Place.create!(
+  city: "Nice",
+  region: "Côte d'Azur",
+  country: "France"
+)
+
+Place.create!(
+  city: "Paris",
+  region: "Île-de-France",
+  country: "France"
+)
