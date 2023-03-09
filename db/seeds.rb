@@ -12,6 +12,10 @@ Place.create(country: "France", city: "Paris")
 Place.create(country: "France", city: "Toulouse")
 Place.create(country: "Italy", city: "Palermo")
 Place.create(country: "Italy", city: "Rome")
+Place.create(country: "Canada")
+Place.create(country: "Japan")
+Place.create(country: "Chile")
+Place.create(country: "Australia")
 
 
 Scraper::RecipesByCountryService.call('France')

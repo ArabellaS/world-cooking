@@ -14,6 +14,14 @@ class PagesController < ApplicationController
     else
       @recipes = Recipe.all
     end
-
+    @places = Place.all
+    @markers = @places.geocoded.map do |place|
+      {
+        lat: place.lat,
+        lng: place.lng,
+        # info_window_html: render_to_string(partial: "info_window", locals: {place: place}),
+        marker_html: render_to_string(partial: "marker")
+      }
+    end
   end
 end
