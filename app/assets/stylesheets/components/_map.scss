@@ -30,9 +30,9 @@
 }
 
 .form {
-  margin: 2rem;
+  margin: 1.3rem;
   position: absolute;
-  bottom: 2%;
+  bottom: 0.1rem;
   width: 50%;
   z-index: 3;
 }
@@ -54,14 +54,25 @@
   color: white;
 
   &::placeholder {
-    color: white;
+    color: #FFFFF0;
+    font-weight: bold;
   }
+}
+
+.button {
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+  padding: 1.1rem;
+}
+
+.butn {
+  border-radius: 8px;
+  background-color: #3D0C02;
 }
 
 
 .loupe {
   border: none;
-  padding: 1.1rem;
-  background: none;
-  background-color: red;
+  padding: 0.3rem;
+  color: #FFFFF0;
 }
