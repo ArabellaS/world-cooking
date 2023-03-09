@@ -1,7 +1,9 @@
 <h1>Recipes#show</h1>
 <p>Find me in app/views/recipes/show.html.erb</p>
-<% if plane.photo.key? %>
-          <%= cl_image_tag recipe.photo.key, height: 180, crop: :fill, class: "" %>
-            <% else %>
-          <%= image_tag "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80" %>
-            <% end %>
+
+<div class="baniere">
+  <% if @recipe.photo.key? %>
+    <div class="show-banner" style="background-image: linear-gradient(rgb(139 139 139 / 40%),rgb(0 0 0 / 40%)), url('<%= cl_image_path @plane.photo.key %>');">
+  <% else %>
+    <div class=" show-banner" style="background-image: linear-gradient(rgb(139 139 139 / 40%),rgb(0 0 0 / 40%)), url(https://images.dassault-aviation.com/w_2000,f_auto,q_auto,g_center,dpr_auto,c_fill/wp-auto-upload/1/files/2021/06/DA00026229_S-1.jpg);">
+  <% end %>
