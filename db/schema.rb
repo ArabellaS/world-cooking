@@ -109,7 +109,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_093613) do
 
   create_table "recipes", force: :cascade do |t|
     t.text "content"
-    t.bigint "place_id", null: false
+    t.bigint "place_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"

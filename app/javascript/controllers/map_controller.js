@@ -1,8 +1,8 @@
 import { Controller } from "@hotwired/stimulus"
-// import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
 export default class extends Controller {
-  static values = { apiKey: String, markers: Array | null }
+  static values = { apiKey: String, markers: Array }
 
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
@@ -10,10 +10,11 @@ export default class extends Controller {
     this.map = new mapboxgl.Map({
       container: this.element,
       projection: projection,
+      center: [52.528594, -23.493070],
+      zoom: 1,
       style: "mapbox://styles/ceciles/clepszwio008w01pjarafjp5i"
     })
 
-    console.log(projection)
     this.map.setRenderWorldCopies(false)
     // disable map rotation using right click + drag
     this.map.dragRotate.disable();
@@ -22,12 +23,17 @@ export default class extends Controller {
     this.map.touchZoomRotate.disableRotation();
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+
+    this.map.on('click', 'circle', (e) => {
+      this.map.flyTo({
+      center: e.features[0].geometry.coordinates
+      });
+    });
   }
 
   #addMarkersToMap() {
-    this.markersValue.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
 
+    this.markersValue.forEach((marker) => {
       // Create a HTML element for your custom marker
       const customMarker = document.createElement("div")
       customMarker.innerHTML = marker.marker_html
@@ -35,7 +41,6 @@ export default class extends Controller {
       // Pass the element as an argument to the new marker
       new mapboxgl.Marker(customMarker)
         .setLngLat([marker.lng, marker.lat])
-        .setPopup(popup)
         .addTo(this.map)
     })
   }
