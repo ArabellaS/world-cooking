@@ -1,9 +1,10 @@
 <div class="card">
 <h2>Welcome to <%= place.city || place.region || place.country %>'s cuisine</h2>
+<% if place.address.include?("city", "region") %>
 <h3>Basic ingredients :</h3>
-  <ol><% ingrs = place.ingredients.sample(8)
-          ingrs.each do |ingr|%></ol>
-          <li><%= ingr %></li>
-          <% end %>
-  </ol>
+  <% ingredients.each do |ingr|%>
+     <p><%= ingr.name %></p>
+  <% else %>
+  <%= Youpi %>
+  <% end %>
 </div>
