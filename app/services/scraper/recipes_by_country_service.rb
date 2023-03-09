@@ -8,7 +8,8 @@ class Scraper::RecipesByCountryService
     @cuisine = {
       'France' => {name: 'french', continent: 'european', code: 721},
       'Italy' => {name: 'italian', continent: 'european', code: 723},
-      'India' => {name: 'indian', continent: 'asian', code: 233}
+      'India' => {name: 'indian', continent: 'asian', code: 233},
+      'Japan' => {name: 'japanese', continent: 'asian', code: 699}
     }
   end
 
@@ -27,9 +28,17 @@ class Scraper::RecipesByCountryService
         name = element.search(".card__title-text").text.strip
 
         details_url = element.attribute("href").value
-        ## photo : ## photo_url = element.search('img').first.attributes["data-src"].value
 
-        ## photo : ## photo = URI.open(photo_url)
+        ## photo : ## 
+        photo_url = element.search('img').first.attributes["data-src"].value
+
+        # begin
+          photo = URI.open(photo_url)
+          puts "Add photo to data at #{photo_url}..."
+        # rescue
+        #   puts "The request for a page at #{photo_url} timed out...exiting."
+        #   return false
+        # end
 
         details_doc = Nokogiri::HTML.parse(URI.open(details_url).read, nil, "utf-8")
 
@@ -50,7 +59,8 @@ class Scraper::RecipesByCountryService
         end
 
         recipe = Recipe.create(name: name, content: content, place: @place)
-        ## photo : ## recipe.photo.attach(io: photo, filename: "#{recipe.name}_photo", content_type: 'image/*')
+        ## photo : ## 
+        recipe.photo.attach(io: photo, filename: "#{recipe.name}_photo", content_type: 'image/*')
 
         ######## Ingredient & Quantity ########
 
@@ -68,6 +78,8 @@ class Scraper::RecipesByCountryService
           next unless name.present?
 
           ingredient = Ingredient.find_or_create_by(name: name)
+
+          ingredient.places << @place
 
           Quantity.create(unit: unit, amount: amount, ingredient: ingredient, recipe: recipe)
         end
