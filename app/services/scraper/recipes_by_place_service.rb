@@ -11,7 +11,7 @@ class Scraper::RecipesByPlaceService
   end
 
   def perform
-    url = "https://en.wikipedia.org/wiki/#{formatted(@recipe[:name])}"
+    url = "https://wikipedia.org/wiki/#{formatted(@recipe[:name])}"
     p url
     html = URI.open(url).read
     doc = Nokogiri::HTML.parse(html, nil, "utf-8")

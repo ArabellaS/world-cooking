@@ -5,19 +5,22 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+p "Seeds in progress ..."
+p "Can take 5 mins ..."
 
 Place.create(country: "India")
+Place.create(country: "Canada")
+Place.create(country: "Japan")
+Place.create(country: "Chile")
+Place.create(country: "Australia")
 Place.create(country: "India", region: "Goa", city: "Panaji")
 Place.create(country: "France", city: "Paris")
 Place.create(country: "France", city: "Toulouse")
 Place.create(country: "Italy", city: "Palermo")
 Place.create(country: "Italy", city: "Rome")
-Place.create(country: "Canada")
-Place.create(country: "Japan")
-Place.create(country: "Chile")
-Place.create(country: "Australia")
-
 
 Scraper::RecipesByCountryService.call('France')
 Scraper::RecipesByCountryService.call('Italy')
 Scraper::RecipesByCountryService.call('India')
+
+p "Seeds done."
