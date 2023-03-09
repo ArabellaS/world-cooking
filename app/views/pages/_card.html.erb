@@ -1,1 +1,9 @@
-<h2>Coucou</h2>
+<div class="card">
+<h2>Welcome to <%= place.city || place.region || place.country %>'s cuisine</h2>
+<h3>Basic ingredients :</h3>
+  <ol><% ingrs = place.ingredients.sample(8)
+          ingrs.each do |ingr|%></ol>
+          <li><%= ingr %></li>
+          <% end %>
+  </ol>
+</div>

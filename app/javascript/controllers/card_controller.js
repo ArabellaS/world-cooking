@@ -6,6 +6,8 @@ export default class extends Controller {
   display() {
     console.log('Kali')
     const card = document.createElement("div")
-    card.innerHTML = card.card_html
+    console.log(card)
+    card.innerHTML = 'Coucou'
+    console.log(card)
   }
 }

@@ -19,7 +19,7 @@ class PagesController < ApplicationController
       {
         lat: place.lat,
         lng: place.lng,
-        card_html: render_to_string(partial: "card", locals: {place: place}),
+        info_window_html: render_to_string(partial: "card", locals: {place: place}),
         marker_html: render_to_string(partial: "marker")
       }
     end
