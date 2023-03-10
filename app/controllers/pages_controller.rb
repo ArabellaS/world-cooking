@@ -17,5 +17,6 @@ class PagesController < ApplicationController
         card_html: render_to_string(partial: "card", locals: {place: place}),
         marker_html: render_to_string(partial: "marker")
       }
+    end
   end
 end
