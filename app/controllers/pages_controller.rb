@@ -9,6 +9,7 @@ class PagesController < ApplicationController
       @recipes = Recipe.all
       @places = Place.all
     end
+    
     @markers = @places.geocoded.map do |place|
       {
         lat: place.lat,
@@ -16,6 +17,5 @@ class PagesController < ApplicationController
         card_html: render_to_string(partial: "card", locals: {place: place}),
         marker_html: render_to_string(partial: "marker")
       }
-    end
   end
 end
