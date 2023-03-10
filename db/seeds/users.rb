@@ -1,5 +1,5 @@
-User.destroy_all# if Rails.env.development?
 FlavorProfile.destroy_all# if Rails.env.development?
+User.destroy_all# if Rails.env.development?
 
 User.create!(
   name: "alexis",
