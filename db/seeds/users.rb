@@ -1,4 +1,5 @@
 User.destroy_all# if Rails.env.development?
+FlavorProfile.destroy_all# if Rails.env.development?
 
 User.create!(
   name: "alexis",
@@ -16,4 +17,16 @@ User.create!(
   name: "ouss",
   password: "azerty",
   email: "ouss@test.fr"
+)
+
+FlavorProfile.create!(
+  user: User.first
+)
+
+FlavorProfile.create!(
+  user: User.second
+)
+
+FlavorProfile.create!(
+  user: User.third
 )

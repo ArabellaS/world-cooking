@@ -21,6 +21,6 @@ class PagesController < ApplicationController
   end
 
   def profile
-    @flavor_profiles = current_user.flavor_profile
+    @flavor_profile = current_user.flavor_profile
   end
 end
