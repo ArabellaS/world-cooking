@@ -1,9 +1,43 @@
-<%= image_tag "logo.png",
+<div data-controller='card'>
+  <%= image_tag "logo.png", class: "marker",
               height: 30,
               width: 30,
               alt: "Logo",
               data: {
-                controller: "card",
-                action: "click->card#display",
+                action: 'click->card#displayCard'
               }
-              %>
+  %>
+  <div class="flip-card display-none" data-action='click->card#rotateCard'>
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <% if place.city || place.region %>
+          <div class="card">
+            <h2>Welcome to <%= place.city || place.region || place.country %>'s cuisine</h2>
+              <% place.recipes.each do |recipe| %>
+                <p><%= recipe.name %></p>
+              <% end %>
+          </div>
+        <% else %>
+            <h2>Welcome to <%= place.city || place.region || place.country %>'s cuisine</h2>
+            <ul><h3>Basic ingredients :</h3>
+              <% ingredients.sample(6).each do |ingr|%>
+                <li><%= ingr.name %></li>
+              <% end %>
+            </ul>
+            <ul><h3>Utensils :</h3>
+            <% utensils.sample(6).each do |utensil| %>
+              <li><%= utensil.name %></li>
+            <% end %>
+            </ul>
+          <% end %>
+      </div>
+      <div class="flip-card-back display-none">
+        <h2>Welcome to <%= place.city || place.region || place.country %>'s cuisine</h2>
+        <ul><h3>Some typical and recommended recipes : </h3>
+          <% place.recipes.sample(8).each do |recipe| %>
+            <li><%= recipe.name %></li>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>

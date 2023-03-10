@@ -12,6 +12,6 @@ class Place < ApplicationRecord
     localisation << city if city
     localisation << region if region
     localisation << country
-    "#{localisation.join(",")}"
+    "#{localisation.join(", ")}"
   end
 end
