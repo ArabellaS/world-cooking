@@ -14,20 +14,14 @@ class PagesController < ApplicationController
     else
       @recipes = Recipe.all
     end
-<<<<<<< HEAD
   end
 
   def profile
-=======
-    @places = Place.all
-    @markers = @places.geocoded.map do |place|
-      {
-        lat: place.lat,
-        lng: place.lng,
-        card_html: render_to_string(partial: "card", locals: {place: place}),
-        marker_html: render_to_string(partial: "marker")
+    {
+      lat: place.lat,
+      lng: place.lng,
+      card_html: render_to_string(partial: "card", locals: {place: place}),
+      marker_html: render_to_string(partial: "marker")
       }
-    end
->>>>>>> origin
   end
 end
