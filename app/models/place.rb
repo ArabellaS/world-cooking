@@ -8,10 +8,10 @@ class Place < ApplicationRecord
   has_many :utensils, through: :used_ins, source: :usable, source_type: 'Utensil'
 
   def address
-    localisation = []
-    localisation << city if city
-    localisation << region if region
-    localisation << country
-    "#{localisation.join(", ")}"
+    @localisation = []
+    @localisation << city if city
+    @localisation << region if region
+    @localisation << country
+    "#{@localisation.join(", ")}"
   end
 end
