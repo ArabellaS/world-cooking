@@ -1,4 +1,7 @@
 class RecipesController < ApplicationController
+  def index
+  end
+
   def show
     @ingredients = Ingredient.new
 
