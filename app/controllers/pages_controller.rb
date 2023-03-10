@@ -24,4 +24,8 @@ class PagesController < ApplicationController
       }
     end
   end
+
+  def profile
+    @flavor_profiles = current_user.flavor_profile
+  end
 end
