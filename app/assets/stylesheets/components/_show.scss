@@ -1,0 +1,40 @@
+.fa-house::before {
+  content: "\f015";
+  position: absolute;
+  bottom: 0;
+  margin-left: 1em;
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+}
+.containeur {
+  margin-left: 2em;
+
+ }
+
+ .recipe_content{
+  margin-top: 14em;
+  font-family: system-ui;
+  margin-left: 2em;
+  color: maroon;
+
+ }
+
+ h2 {
+  text-align: center;
+  font-size: 2em;
+  color: #ff9900;
+ }
+
+ .place-recipe {
+  margin-left: 10em;
+  font-size: 1.5em;
+  font-family: cursive;
+  color: orange;
+ }
+
+ .name-recipe {
+  margin-left: 5em;
+  font-size: 1.5em;
+  font-family: cursive;
+  color: yellow;
+ }
