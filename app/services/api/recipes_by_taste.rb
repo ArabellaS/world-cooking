@@ -7,6 +7,10 @@ class Api::RecipesByTasteService
     @recipe = recipe
   end
 
+  def self.call(recipe)
+    recipe.perform
+  end
+
   def perform
 
     headers = {
@@ -20,8 +24,6 @@ class Api::RecipesByTasteService
     taste_url = "https://api.spoonacular.com/recipes/#{id}/tasteWidget.json?apiKey=#{ENV['SPOONACULAR_API_KEY']}"
     recipe_serialized = URI.open(taste_url).read
     recipe = JSON(recipe_serialized)
-    flavor_profile = FlavorProfile.new(recipe.map { |_key, value| value = value / 20 })
-    @recipe.flavor_profile = flavor_profile
-    @recipe.save
+    flavor_profile = @recipe.update(recipe.map { |_key, value| value = value / 20 })
   end
 end
