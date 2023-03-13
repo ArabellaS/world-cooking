@@ -4,12 +4,16 @@ class PagesController < ApplicationController
   def home
     if params[:query].present?
       @recipes = Recipe.global_search(params[:query])
-      @places = Place.where(id: @recipes.map(&:place).uniq!.map(&:id))
+      unless @recipes.empty?
+        @places = Place.where(id: @recipes.map(&:place).uniq.map(&:id))
+      else
+        @places = Place.all
+      end
     else
       @recipes = Recipe.all
       @places = Place.all
     end
-    
+
     @markers = @places.geocoded.map do |place|
       {
         lat: place.lat,
