@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :recipes, only: [:index, :show]
 
   resources :places, only: :index
+
+  resources :flavor_profiles, only: [:new, :create]
   # Defines the root path route ("/")
   # root "articles#index"
 end
