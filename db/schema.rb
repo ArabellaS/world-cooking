@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_10_100800) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_13_134005) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -59,15 +59,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_100800) do
   end
 
   create_table "flavor_profiles", force: :cascade do |t|
-    t.float "salty"
-    t.float "sweet"
-    t.float "umami"
-    t.float "sour"
-    t.float "spicy"
-    t.float "bitter"
+    t.float "saltiness"
+    t.float "sweetness"
+    t.float "savoriness"
+    t.float "sourness"
+    t.float "spiciness"
+    t.float "bitterness"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "fattiness"
     t.index ["user_id"], name: "index_flavor_profiles_on_user_id"
   end
 
