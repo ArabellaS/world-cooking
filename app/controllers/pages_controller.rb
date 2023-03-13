@@ -9,7 +9,6 @@ class PagesController < ApplicationController
       @recipes = Recipe.all
       @places = Place.all
     end
-    
     @markers = @places.geocoded.map do |place|
       {
         lat: place.lat,
