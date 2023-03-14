@@ -4,7 +4,7 @@
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      <div>
+      <div data-controller="chatbot">
         <div class="form">
           <%= form_with url: root_path, method: :get, class: "search" do %>
             <%= text_field_tag :query,
@@ -38,7 +38,12 @@
           <% end %>
         </div>
         <% if user_signed_in? %>
-        <button data-controller="chatbot" id="chatbot-button"><i class="fa-solid fa-robot"></i></button>
+          <button id="chatbot-button" data-chatbot-target='button' data-action='click->chatbot#toggleInput'><i class="fa-solid fa-robot"></i>
+          </button>
+          <div style="height: 50vh; width: 50vw;" data-chatbot-target='input' class="hidden">
+            <input type="text" name="new_item" data-input-target="input" id="chatbot-input">
+            <!-- <button data-action="click->input-toggle#submit">Add</button> -->
+          </div>
         <% end %>
       </div>
     </div>

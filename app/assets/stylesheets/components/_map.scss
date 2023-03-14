@@ -127,4 +127,25 @@
   font-size: 20px;
 }
 
+.hidden {
+  display: none;
+}
+
+#chatbot-input {
+  position: fixed;
+  top: 85px;
+  right: 20px;
+  background-color: #0084ff;
+  color: #fff;
+  border: none;
+  width: 150px;
+  height: 30px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+  z-index: 3;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
 
