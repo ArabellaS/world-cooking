@@ -51,6 +51,9 @@ gem "sassc-rails"
 # Faker
 gem 'faker'
 
+#Chartkick for pie chart
+gem "chartkick"
+
 # open-uri
 gem 'open-uri'
 
