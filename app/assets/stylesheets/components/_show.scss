@@ -1,21 +1,28 @@
-.btn-home::before {
-  content: "\f015";
+body {
+  font-family: Raleway;
+  background-color: #FFE4B8;
+}
+
+.btn-home {
+
   position: absolute;
   bottom: 0;
-  margin-left: 1em;
   margin-bottom: 0.5em;
-  font-size: 1.5em;
+  margin-left: -1.8em;
+  font-size: 1em;
 }
-.containeur {
+.container {
   margin-left: 2em;
-
+  margin-right: 2rem;
  }
 
- .recipe_content{
-  margin-top: 14em;
-  font-family: system-ui;
-  margin-left: 2em;
+ .recipe-content{
   color: maroon;
+  margin-top: 11.5rem;
+  font-size: 19px;
+  margin-left: 1em;
+  font-weight: 600;
+  margin-right: 18rem;
 
  }
 
@@ -26,15 +33,29 @@
  }
 
  .place-recipe {
-  margin-left: 10em;
-  font-size: 1.5em;
-  font-family: cursive;
-  color: orange;
+  color: maroon;
+  margin-top: 2rem;
+  font-size: 2rem;
+  margin-left: 12em;
+
  }
 
  .name-recipe {
-  margin-left: 5em;
-  font-size: 1.5em;
-  font-family: cursive;
-  color: yellow;
- }
+    margin-left: 5em;
+    font-size: 2rem;
+    color: #800000;
+    font-weight: bold;
+}
+
+span {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-left: 19rem;
+  color: purple
+
+}
+
+.recipe-top {
+  margin-top: 2.5rem;
+
+}
