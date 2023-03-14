@@ -9,14 +9,11 @@ export default class extends Controller {
   }
 
   toggleInput(event) {
-    this.inputTarget.classList.toggle("hidden");
-    console.log("j'ai clické")
+    this.inputTarget.classList.toggle("hidden")
   }
 
-  submit() {
-    const newItem = this.inputTarget.value.trim();
-    // Do something with the new item
-    this.inputTarget.value = "";
-    
+  submit(event) {
+    console.log(this.inputTarget)
+    console.log("j'ai clické")
   }
 }
