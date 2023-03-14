@@ -97,9 +97,12 @@ class Scraper::RecipesByCountryService
 
           next unless category_content.present? && category_content != "Recipes"
 
-          Category.find_or_create_by(content: category_content)
-        end
+          category = Category.find_or_create_by(content: category_content)
 
+          category.recipes << recipe
+
+          category.save
+        end
       end
 
     end
