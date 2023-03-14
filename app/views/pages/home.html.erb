@@ -40,8 +40,8 @@
         <% if user_signed_in? %>
           <button id="chatbot-button" data-chatbot-target='button' data-action='click->chatbot#toggleInput'><i class="fa-solid fa-robot"></i>
           </button>
-          <div style="height: 50vh; width: 50vw;" data-chatbot-target='input' class="hidden">
-            <input type="text" name="new_item" data-input-target="input" id="chatbot-input">
+          <div style="height: 50vh; width: 50vw;" data-chatbot-target='form' class="hidden">
+            <input type="text" name="new_item" data-chatbot-target="input" id="chatbot-input">
             <button data-action="click->chatbot#submit" id="chatbot-btn"><strong>Ask robot</strong></button>
           </div>
         <% end %>
