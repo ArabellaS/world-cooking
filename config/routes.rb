@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get "/profile", to: "pages#profile"
+  get "/get_card", to: "pages#get_card"
 
   resources :feedbacks, only: [:new, :create]
 

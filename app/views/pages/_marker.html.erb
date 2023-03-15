@@ -4,9 +4,11 @@
               width: 30,
               alt: "Logo",
               data: {
-                action: 'click->card#displayCard'
+                action: 'click->card#displayCard',
+                card_place_id_param: place.id
               }
   %>
+
   <div class="flip-card display-none" data-action='click->card#rotateCard'>
     <div class="flip-card-inner">
       <div class="flip-card-front">
