@@ -12,6 +12,7 @@ export default class extends Controller {
       projection: projection,
       center: [52.528594, -23.493070],
       zoom: 1,
+      scrollZoom: false,
       style: "mapbox://styles/ceciles/clepszwio008w01pjarafjp5i"
     })
 

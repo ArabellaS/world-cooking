@@ -3,16 +3,24 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="card"
 export default class extends Controller {
 
-  display() {
-    console.log('Kali')
-    const card = document.createElement("div")
-    console.log(card)
-    card.innerHTML = 'Coucou'
-    console.log(card)
+  displayCard(event) {
+    const placeId = event.params.placeId
+    const transform = this.element.parentElement.style.transform
+    document.querySelectorAll('.flip-card').forEach((card) => {
+      card.classList.add('display-none')
+    })
+    // this.element.nextElementSibling.classList.remove('display-none')
+    this.#createCard(placeId, transform)
   }
 
-  displayCard() {
-    this.element.children[1].classList.remove('display-none')
+  #createCard(placeId, transform) {
+    const transform_formatted = transform.replaceAll('%', '%25')
+    const url = `/get_card?&place=${placeId}&transform=${transform_formatted}`
+    fetch(url, {headers: {"Accept": "text/plain"}} ).then(response => response.text()).then(data => this.#addCardToMap(data))
+  }
+
+  #addCardToMap(data) {
+    document.getElementById('map').insertAdjacentHTML('beforeend', data)
   }
 
   rotateCard(event) {
@@ -24,4 +32,9 @@ export default class extends Controller {
       ca.classList.toggle('display-none')
     })
   }
+
+  closeCard() {
+    this.element.querySelector(".flip-card").classList.add("display-none");
+  }
+
 }

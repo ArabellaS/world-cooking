@@ -13,5 +13,5 @@ application.register("hello", HelloController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
-import MenuController from "./menu_controller"
-application.register("menu", MenuController)
+ import MenuController from "./menu_controller"
+ application.register("menu", MenuController)
