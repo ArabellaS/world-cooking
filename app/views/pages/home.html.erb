@@ -41,6 +41,9 @@
           <button id="chatbot-button" data-chatbot-target='button' data-action='click->chatbot#toggleInput'><i class="fa-solid fa-robot"></i>
           </button>
           <div style="height: 50vh; width: 50vw;" data-chatbot-target='form' class="hidden">
+            
+            <div id="chatbot-text" data-chatbot-target="card"></div>
+
             <input type="text" name="new_item" data-chatbot-target="input" id="chatbot-input">
             <button data-action="click->chatbot#submit" id="chatbot-btn"><strong>Ask robot</strong></button>
           </div>

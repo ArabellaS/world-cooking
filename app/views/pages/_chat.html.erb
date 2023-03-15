@@ -1,1 +1,7 @@
-hello world
+<small>
+  <ul>
+    <% message.all.each do |recipe|%>
+      <li><%= recipe.name %></li>
+    <% end %>
+  </ul>
+</small>
