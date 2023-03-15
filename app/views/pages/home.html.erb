@@ -19,18 +19,19 @@
             </div>
           <% end %>
         </div>
-        <div class="menu-btn" data-controller="menu">
+        <div class="menu-btn" data-controller="menu" data-action="click->menu#toggleMenu">
           <% if user_signed_in? %>
-            <button data-action="click->menu#toggleMenu">
               <% if current_user.name == "alexis" || current_user.name == "cecile" || current_user.name == "ouss" %>
-              <%= image_tag "users/#{current_user.name}.png", class: "rounded-circle img-fluid", :style => "width:7em;" %>
+                <%= image_tag "users/#{current_user.name}.png", :style => "width:7em;" %>
               <% else %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "rounded-circle img-fluid" , :style => "width:7em;" %>
+                <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "rounded-circle img-fluid" , :style => "width:7em;" %>
               <% end %>
-            </button>
             <ul data-menu-target="menu" class="menu display-none">
               <li><%= link_to "Profile", profile_path %></li>
               <li><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %></li>
+              <li><%= link_to "/" do %>
+                    <i class="fa-solid fa-house"></i>
+                   <% end %></li>
             </ul>
           <% else %>
             <li><%= link_to "Login", new_user_session_path %></li>
@@ -41,7 +42,7 @@
           <button id="chatbot-button" data-chatbot-target='button' data-action='click->chatbot#toggleInput'><i class="fa-solid fa-robot"></i>
           </button>
           <div style="height: 50vh; width: 50vw;" data-chatbot-target='form' class="hidden">
-            
+
             <div id="chatbot-text" data-chatbot-target="card"></div>
 
             <input type="text" name="new_item" data-chatbot-target="input" id="chatbot-input">

@@ -9,8 +9,7 @@
           <div class="card">
             <h2>Welcome to <%= place.city || place.region || place.country %>'s cuisine</h2>
               <% place.recipes.each do |recipe| %>
-                <p><%= link_to recipe.name, recipe_path(recipe) %> </p>
-              <% %>
+                <p><%= link_to recipe.name, recipe %> </p>
               <% end %>
           </div>
         <% else %>
@@ -35,7 +34,7 @@
         <h2>Welcome to <%= place.city || place.region || place.country %>'s cuisine</h2>
         <ul><h3>Some typical and recommended recipes : </h3>
           <% place.recipes.sample(8).each do |recipe| %>
-            <li><%= recipe.name %></li>
+            <li><%= link_to recipe.name, recipe %></li>
           <% end %>
         </ul>
       </div>
