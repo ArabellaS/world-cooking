@@ -23,12 +23,12 @@ def handle_wit_message(message)
     return 'hi guy !'
   when 'wit_country'
     value = entities["#{intent}:#{intent}"][-1]['value']
-    Recipe.joins(:place).where('places.country = ?', value).limit(5)
+    Recipe.joins(:place).where('places.country = ?', value).limit(4)
   when 'wit_category'
     value = entities["#{intent}:#{intent}"][-1]['value']
-    Recipe.joins(:categories).where('categories.content ILIKE ?', "%#{value}%").limit(5)
+    Recipe.joins(:categories).where('categories.content ILIKE ?', "%#{value}%").limit(4)
   when 'wit_ingredient'
     value = entities["#{intent}:#{intent}"][-1]['value']
-    Recipe.joins(:ingredients).where('ingredients.name ILIKE ?', "%#{value}%").limit(5)
+    Recipe.joins(:ingredients).where('ingredients.name ILIKE ?', "%#{value}%").limit(4)
   end
 end
