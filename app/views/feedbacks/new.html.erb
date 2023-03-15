@@ -1,2 +1,4 @@
-<h1>Feedbacks#new</h1>
-<p>Find me in app/views/feedbacks/new.html.erb</p>
+<%= simple_form_for(@feedback) do |f| %>
+  <%= f.input :content, label: "Did you like this recipe ?" %>
+  <%= f.submit "Save your feedback" %>
+<% end %>

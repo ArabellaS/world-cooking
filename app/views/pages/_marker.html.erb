@@ -14,7 +14,7 @@
           <div class="card">
             <h2>Welcome to <%= place.city || place.region || place.country %>'s cuisine</h2>
               <% place.recipes.each do |recipe| %>
-                <p><%= recipe.name %></p>
+                <%= link_to recipe.name, recipe %>
               <% end %>
           </div>
         <% else %>
