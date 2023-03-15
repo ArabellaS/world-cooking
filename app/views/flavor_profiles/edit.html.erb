@@ -1,0 +1,12 @@
+<%= simple_form_for(@flavor_profile) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+      <%= f.input :saltiness %>
+      <%= f.input :sweetness %>
+      <%= f.input :sourness %>
+      <%= f.input :bitterness %>
+      <%= f.input :fattiness %>
+      <%= f.input :spiciness %>
+      <%= f.input :savoriness %>
+    <%= f.button :submit %>
+  <% end %>

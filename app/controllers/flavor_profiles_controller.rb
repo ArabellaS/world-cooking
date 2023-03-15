@@ -8,7 +8,7 @@ class FlavorProfilesController < ApplicationController
   def create
     @flavor_profile = FlavorProfile.new(flavor_profile_params)
     @flavor_profile.user = current_user
-    if @flavor_profile.save
+    if @flavor_profile.save!
       redirect_to profile_path
     else
       render :new, status: :unprocessable_entity
@@ -16,8 +16,16 @@ class FlavorProfilesController < ApplicationController
   end
 
   def edit
-    @flavor_profile = FlavorProfile.find(params[:user_id])
-    @flavor_profile.update
+    @flavor_profile = FlavorProfile.find(params[:id])
+  end
+
+  def update
+    @flavor_profile = FlavorProfile.find(params[:id])
+    if @flavor_profile.update(flavor_profile_params)
+      redirect_to profile_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private
