@@ -7,6 +7,11 @@
 //   // z-index: -5;
 //   position: relative;
 // }
+.card {
+  ul {
+    list-style: none;
+  }
+}
 
 .flip-card {
   background-color: transparent !important;
@@ -18,6 +23,7 @@
   top: 0;
   overflow: scroll;
   font-family: Raleway;
+  border-radius: 10px;
 
   &:hover {
     cursor: pointer;
@@ -60,10 +66,13 @@
   width: 100%;
   height: fit-content;
   min-height: 100%;
+  h3 {
+    color: #FFD700;
+  }
 }
 
 .flip-card-front {
-  background-color: #FFFACD;
+  background-color: #FFFFF0;
   color: black;
   opacity: 1;
   text-align: center;
@@ -71,18 +80,29 @@
   a {
     text-decoration: none;
   }
+
   ul {
     list-style: none;
+    padding: 0;
+    font-weight: 600;
+    color: #993300;
   }
 }
 
 .flip-card-back {
-  background-color: dodgerblue;
+  background-color: #FFFFF0;
   color: white;
   transform: rotateY(180deg);
   opacity: 1;
   a {
     text-decoration: none;
+    color: #993300;
+  }
+
+  ul {
+    padding-right: 5px;
+    padding-left: 17px;
+    font-weight: 600;
   }
 }
 
