@@ -1,0 +1,7 @@
+<small>
+  <ul>
+    <% message.all.each do |recipe|%>
+      <li><small><%= link_to recipe.name, recipe, style:"color: white;" %></small></li>
+    <% end %>
+  </ul>
+</small>
