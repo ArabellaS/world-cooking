@@ -33,8 +33,8 @@ export default class extends Controller {
     })
   }
 
-  closeCard() {
-    this.element.querySelector(".flip-card").classList.add("display-none");
+  closeCard(event) {
+    event.stopPropagation()
+    this.element.remove()
   }
-
 }
