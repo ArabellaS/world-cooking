@@ -9,7 +9,10 @@
           <div class="card">
             <h2>Welcome to <%= place.city || place.region || place.country %>'s cuisine</h2>
               <% place.recipes.each do |recipe| %>
+
+
                 <p><%= link_to recipe.name, recipe %> </p>
+
               <% end %>
           </div>
         <% else %>
@@ -29,7 +32,7 @@
       <div class="flip-card-back display-none">
         <!-- Contenu de la carte arrière -->
       <div class="close-btn">
-      <button class="close-button" data-action="click->card#closecard">X</button>
+        <button class="close-button" data-action="click->card#closecard">X</button>
       </div>
         <h2>Welcome to <%= place.city || place.region || place.country %>'s cuisine</h2>
         <ul><h3>Some typical and recommended recipes : </h3>
