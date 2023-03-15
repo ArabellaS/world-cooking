@@ -6,7 +6,7 @@ export default class extends Controller {
   connect() {
     console.log('beat it')
     console.log(this.buttonTarget)
-    console.log('hello')
+    console.log('hello test')
   }
 
   toggleInput(event) {
@@ -16,7 +16,7 @@ export default class extends Controller {
   submit(event) {
     console.log(this.inputTarget.value)
     const url = `/chatbot?message=${this.inputTarget.value}`
-    fetch(url, { headers: {"Accept": "application/json"}}).then(response => response.json()).then(data => console.log(data))
+    fetch(url, {headers: {"Accept": "text/plain"}}).then(response => response.text()).then(data => console.log(data))
     console.log("j'ai clické")
   }
 }
