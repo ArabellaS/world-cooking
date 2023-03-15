@@ -24,17 +24,9 @@ body {
   float: right;
 }
 
-ul {
-
-  list-style: url('logo.png');
-
-}
-
 .containeur-profile {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
   margin: 2rem;
-
-
 }

@@ -80,13 +80,12 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  padding: 10px;
   cursor: pointer;
   z-index: 3;
 }
 
 .display-none {
-  display: none;  
+  display: none;
 }
 
 .menu {
@@ -95,17 +94,22 @@
   right: 0;
   padding: 0;
   margin: 0;
-  background-color: #fff;
+  text-align: center;
+  background-color: white;
   list-style: none;
-  border: 1px solid #ccc;
+  border: 1px solid #FDEE00;
 }
 
 .menu li {
   padding: 10px;
+  a {
+    text-decoration: none;
+    color: #7C0902;
+  }
 }
 
 .menu li:hover {
-  background-color: #f0f0f0;
+  background-color: #FFBF00;
 }
 
 #chatbot-button {
@@ -147,6 +151,7 @@
   justify-content: center;
   align-items: center;
   font-size: 20px;
+  padding-right: 18px;
 }
 
 #chatbot-input {

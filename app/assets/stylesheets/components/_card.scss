@@ -10,7 +10,7 @@
 
 .flip-card {
   background-color: transparent !important;
-  width: 300px;
+  width: 200px;
   height: 200px;
   border: 1px solid #f1f1f1;
   perspective: 1000px;
@@ -63,9 +63,17 @@
 }
 
 .flip-card-front {
-  background-color: rebeccapurple;
+  background-color: #FFFACD;
   color: black;
   opacity: 1;
+  text-align: center;
+
+  a {
+    text-decoration: none;
+  }
+  ul {
+    list-style: none;
+  }
 }
 
 .flip-card-back {
@@ -73,6 +81,9 @@
   color: white;
   transform: rotateY(180deg);
   opacity: 1;
+  a {
+    text-decoration: none;
+  }
 }
 
 
