@@ -1,27 +1,22 @@
-
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
-
-
 <div class="container">
-  <h1>Recipes#show</h1>
-      <div class="head">
-      <h2> Recipe !</h2>
          <% if @recipe.photo.key? %>
-          <%= cl_image_tag @recipe.photo.key, height: 80, crop: :fill, class: "img" %>
+          <%= cl_image_tag @recipe.photo.key, :width=>500, :crop=>"mfit", class: "img" %>
             <% else %>
             <%= image_tag "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80" %>
           <% end %>
-      <p>Find me in app/views/recipes/show.html.erb</p>
- <div class= "name-recipe">
-          <%= @recipe.name %></p>
+  <div class="recipe-top">
+   <div class= "name-recipe">
+      <%= @recipe.name %></p>
    </div>
+     <span>FROM</span>
     <div class= "place-recipe">
         <%= @recipe.place.country %>
     </div>
+  </div>
       <div class="recipe-content">
-           <%= @recipe.content %>
-          </div>
+        <% @recipe.content.split('STEP')[1..].each do |step| %>
+          <p> STEP <%= step %></p>
+        <% end %>
       </div>
         <%= link_to "/", class: "btn-home" do %>
         <i class="fa-solid fa-house"></i>

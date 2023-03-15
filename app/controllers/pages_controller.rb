@@ -13,8 +13,8 @@ class PagesController < ApplicationController
       @recipes = Recipe.all
       @places = Place.all
     end
-
-    @markers = @places.geocoded.map do |place|
+    
+   @markers = @places.geocoded.map do |place|
       {
         lat: place.lat,
         lng: place.lng,

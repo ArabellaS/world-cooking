@@ -9,6 +9,10 @@
 @import "card";
 @import "show";
 
+body {
+  font-family: Raleway;
+}
+
 .recipes-user {
   font-size: 1.5em;
   justify-content: space-between;
