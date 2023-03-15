@@ -1,15 +1,18 @@
 class FlavorProfilesController < ApplicationController
 
-
   def new
     @flavor_profile = FlavorProfile.new
     @flavor_profile.user = current_user
   end
 
-  def save
-    @flavor_profile = FlavorProfile.new
+  def create
+    @flavor_profile = FlavorProfile.new(flavor_profile_params)
     @flavor_profile.user = current_user
-    @flavor_profile.save
+    if @flavor_profile.save
+      redirect_to profile_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -17,4 +20,9 @@ class FlavorProfilesController < ApplicationController
     @flavor_profile.update
   end
 
+  private
+
+  def flavor_profile_params
+    params.require(:flavor_profile).permit(:saltiness, :sourness, :savoriness, :sweetness, :bitterness, :spiciness)
+  end
 end
