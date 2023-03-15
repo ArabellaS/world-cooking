@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  require "sidekiq/web"
+  # authenticate :user, ->(user) { user.admin? } do
+  mount Sidekiq::Web => '/sidekiq'
+  # end
+
   get 'feedbacks/new'
   get 'recipes/show'
   devise_for :users
