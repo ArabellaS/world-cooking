@@ -19,14 +19,14 @@ User.create!(
   email: "ouss@test.fr"
 )
 
-FlavorProfile.create!(
-  user: User.first
-)
+# FlavorProfile.create!(
+#   user: User.first
+# )
 
-FlavorProfile.create!(
-  user: User.second
-)
+# FlavorProfile.create!(
+#   user: User.second
+# )
 
-FlavorProfile.create!(
-  user: User.third
-)
+# FlavorProfile.create!(
+#   user: User.third
+# )

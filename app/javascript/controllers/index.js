@@ -7,15 +7,17 @@ import { application } from "./application"
 import CardController from "./card_controller"
 application.register("card", CardController)
 
+import ChartController from "./chart_controller"
+application.register("chart", ChartController)
+
+import ChatbotController from "./chatbot_controller"
+application.register("chatbot", ChatbotController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
 
-
 import MenuController from "./menu_controller"
 application.register("menu", MenuController)
-
-import ChatbotController from "./chatbot_controller"
-application.register("chatbot", ChatbotController)

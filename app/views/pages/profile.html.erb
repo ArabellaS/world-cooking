@@ -1,30 +1,29 @@
-<div class="containeur-profile">
-  <div class="how-section1">
-    <div class="how-img">
-      <% if current_user.name == "alexis" || current_user.name == "cecile" || current_user.name == "ouss" %>
-        <%= image_tag "users/#{current_user.name}.png", class: "rounded-circle img-fluid", :style => "width:8em" %>
-      <% else %>
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "rounded-circle img-fluid" %>
-      <% end %>
-    </div>
+<div class="how-section1">
+  <div class="how-img">
+    <% if current_user.name == "alexis" || current_user.name == "cecile" || current_user.name == "ouss" %>
+      <%= image_tag "users/#{current_user.name}.png", class: "rounded-circle img-fluid", :style => "width:6em" %>
+    <% else %>
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "rounded-circle img-fluid" %>
+    <% end %>
   </div>
+  </div>
+<div class="containeur-profile">
+  <div id="myPieChart" data-controller='chart' data-chart-target="chart"
+    data-chart-sweetness-value='<%= current_user.flavor_profile.sweetness %>'
+    data-chart-sourness-value='<%= current_user.flavor_profile.sourness %>'
+    data-chart-saltiness-value='<%= current_user.flavor_profile.saltiness %>'
+    data-chart-savoriness-value='<%= current_user.flavor_profile.savoriness %>'
+    data-chart-bitterness-value='<%= current_user.flavor_profile.bitterness %>'
+    data-chart-spiciness-value='<%= current_user.flavor_profile.spiciness %>'
+    data-chart-fattiness-value='<%= current_user.flavor_profile.fattiness %>' ></div>
   <div class="recipes-user">
-    <ul>
-      <li>Butter chicken</li>
-      <li>Thai green curry</li>
-      <li>Massaman curry</li>
-      <li>Shrimp tempura</li>
-      <li>Tantanmen</li>
-      <li>Quiche Lorraine</li>
-      <li>Dahl Makhni</li>
-      <li>Cheese naan</li>
-      <li>Pho</li>
-      <li>Banh Mi</li>
-      <li>Banh cuon</li>
-      <li>Drunken noodles</li>
+    <h3>Favourite recipes :</h3>
+    <ul><% current_user.proposed_recipes.each do |recipe| %>
+      <li><%= link_to recipe.recipe.name, recipes_url %></li>
+    <% end %>
     </ul>
   </div>
-  <%= link_to root_path do %>
+</div>
+  <%= link_to "/", class: "btn-home-profile" do %>
     <i class="fa-solid fa-house"></i>
   <% end %>
-</div>

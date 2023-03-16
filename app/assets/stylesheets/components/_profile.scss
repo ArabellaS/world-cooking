@@ -1,0 +1,57 @@
+#myPieChart {
+  position: relative;
+  bottom: 2rem;
+}
+
+
+.how-img {
+  float: right;
+}
+
+
+h3 {
+  color: #7C0902;
+}
+
+rect {
+  fill: #FADA5E;
+}
+
+ul {
+  list-style: none;
+  margin-left: -31px;
+
+  a {
+    text-decoration: none;
+    color: #800000;
+  }
+
+  li:not(:last-child) {
+    margin-bottom: 0.5rem;
+ }
+}
+
+g {
+  display: flex;
+}
+
+.recipes-user {
+  font-size: 1.5em;
+  justify-content: space-between;
+  position: relative;
+  top: 8rem;
+  width: 58%;
+}
+
+.containeur-profile {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.btn-home-profile {
+  color: #800000;
+  position: relative;
+  bottom: 1rem;
+  font-size: 30px;
+}
