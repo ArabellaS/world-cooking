@@ -38,7 +38,7 @@ export default class extends Controller {
     ]);
     let options = {'colors' :["#7C0902", "#FFA000", "#FFD700", "#F94D00", "#D2691E", "#FFBF00"],
                   'width':800,
-                  'height':400};
+                  'height':600};
     console.log(options)
 
     let chart = new google.visualization.PieChart(this.chartTarget);

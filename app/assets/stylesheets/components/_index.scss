@@ -12,22 +12,10 @@
 
 body {
   font-family: Raleway;
-}
-
-.recipes-user {
-  font-size: 1.5em;
-  justify-content: space-between;
-  margin-top: 3em;
-
+  background-color: #FADA5E;
+  margin: 1rem 1.5rem 2rem 1.5rem !important;
 }
 
 .col-md-6 {
   float: right;
-}
-
-.containeur-profile {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  margin: 2rem;
 }
