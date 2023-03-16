@@ -1,3 +1,7 @@
+<br>
+<%= link_to root_path, class:"btn-home" do %>
+  <i class="fa-solid fa-house"></i>
+<% end %>
 <div class="how-img">
   <% if current_user.name == "alexis" || current_user.name == "cecile" || current_user.name == "ouss" %>
     <%= image_tag "users/#{current_user.name}.png", class: "rounded-circle img-fluid", :style => "width:6em" %>
@@ -23,6 +27,3 @@
     </ul>
   </div>
 </div>
-  <%= link_to "/", class: "btn-home-profile" do %>
-    <i class="fa-solid fa-house"></i>
-  <% end %>
