@@ -34,8 +34,10 @@
                    <% end %></li>
             </ul>
           <% else %>
-            <li><%= link_to "Login", new_user_session_path %></li>
-            <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <%= link_to new_user_session_path do %>
+              <i class="fa-solid fa-right-to-bracket"></i>
+            <% end %>
+            <%#= link_to "Sign up", new_user_registration_path %>
           <% end %>
         </div>
         <% if user_signed_in? %>
