@@ -6,7 +6,7 @@ export default class extends Controller {
   connect() {
     console.log(this.buttonTarget)
     console.log(this.cardTarget)
-    console.log('hello test')
+    console.log('test connect')
   }
 
   toggleInput(event) {
@@ -14,7 +14,7 @@ export default class extends Controller {
   }
 
   submit(event) {
-    console.log("test 1")
+    console.log("start submit")
 
     console.log(this.inputTarget.value)
     const url = `/chatbot?message=${this.inputTarget.value}`
@@ -24,11 +24,10 @@ export default class extends Controller {
     .then(response => response.text())
     .then((data) => {
       this.cardTarget.innerHTML = `${data}`
+      console.log(data)
     })
-    // .then(data => console.log(data))
-    // .then(data => this.cardTarget.innerHTML = `<p>${data}</p>`)
-    // .catch(error => console.log(error));
+    .catch(error => console.log(error))
 
-    console.log("test 2")
+    console.log("end submit")
   }
 }
