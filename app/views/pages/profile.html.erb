@@ -18,8 +18,9 @@
     data-chart-fattiness-value='<%= current_user.flavor_profile.fattiness %>' ></div>
   <div class="recipes-user">
     <h3>Favourite recipes :</h3>
-    <ul><% current_user.proposed_recipes.each do |recipe| %>
-      <li><%= link_to recipe.recipe.name, recipes_url %></li>
+    <ul>
+    <% current_user.proposed_recipes.each do |recipe| %>
+      <li><%= link_to recipe.recipe.name, recipe_path(recipe.recipe) %></li>
     <% end %>
     </ul>
   </div>
