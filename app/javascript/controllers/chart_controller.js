@@ -36,12 +36,13 @@ export default class extends Controller {
       ['Spiciness', this.spicinessValue],
       ['Fattiness', this.fattinessValue]
     ]);
-    let options = {'title':'How Much Pizza I Ate Last Night',
-                 'width':400,
-                 'height':300};
+    let options = {'colors' :["#7C0902", "#FFA000", "#FFD700", "#F94D00", "#D2691E", "#FFBF00"],
+                  'width':800,
+                  'height':400};
+    console.log(options)
 
     let chart = new google.visualization.PieChart(this.chartTarget);
 
-    chart.draw(data)
+    chart.draw(data, options);
   }
 }
