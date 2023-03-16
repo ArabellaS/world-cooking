@@ -1,12 +1,10 @@
-<div class="how-section1">
-  <div class="how-img">
-    <% if current_user.name == "alexis" || current_user.name == "cecile" || current_user.name == "ouss" %>
-      <%= image_tag "users/#{current_user.name}.png", class: "rounded-circle img-fluid", :style => "width:6em" %>
-    <% else %>
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "rounded-circle img-fluid" %>
-    <% end %>
-  </div>
-  </div>
+<div class="how-img">
+  <% if current_user.name == "alexis" || current_user.name == "cecile" || current_user.name == "ouss" %>
+    <%= image_tag "users/#{current_user.name}.png", class: "rounded-circle img-fluid", :style => "width:6em" %>
+  <% else %>
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "rounded-circle img-fluid" %>
+  <% end %>
+</div>
 <div class="containeur-profile">
   <div id="myPieChart" data-controller='chart' data-chart-target="chart"
     data-chart-sweetness-value='<%= current_user.flavor_profile.sweetness %>'
