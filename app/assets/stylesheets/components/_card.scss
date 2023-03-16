@@ -111,3 +111,16 @@
   display: flex;
   justify-content: flex-end;
 }
+
+
+#chatbot-text {
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+
+#chatbot-btn:active {
+  background-color: #85c4d9;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
