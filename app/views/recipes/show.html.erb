@@ -21,9 +21,12 @@
     <p>Ingredients :</p>
     <small>
       <% @recipe.quantities.each do |quantity|%>
-        <%= quantity.amount %>
-        <%= quantity.unit %>
-        <%= quantity.ingredient.name %> ;
+        <% if quantity.amount != 0 %>
+          <%= quantity.amount %>
+          <%= quantity.unit %>
+          <%= quantity.ingredient.name %>
+          <br>
+        <% end %>
       <% end %>
     </small>
     <p>Directions :</p>
