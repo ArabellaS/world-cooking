@@ -17,8 +17,8 @@
     data-chart-spiciness-value='<%= current_user.flavor_profile.spiciness %>'
     data-chart-fattiness-value='<%= current_user.flavor_profile.fattiness %>' ></div>
   <div class="recipes-user">
-    <ul><% current_user.recipes.each do |recipe| %>
-      <li><%= link_to recipe.name, recipe %></li>
+    <ul><% current_user.id.proposed_recipes.each do |recipe| %>
+      <li><%= link_to proposed_recipe.name, proposed_recipe %></li>
     <% end %>
     </ul>
   </div>
