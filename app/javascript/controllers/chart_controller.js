@@ -5,51 +5,43 @@ import { GoogleCharts } from "google-charts"
 export default class extends Controller {
   static targets = ['chart']
 
+  static values = {
+    sweetness: Number,
+    sourness: Number,
+    saltiness: Number,
+    savoriness: Number,
+    bitterness: Number,
+    spiciness: Number,
+    fattiness: Number
+  }
+
   connect() {
-    console.log(this.chartTarget)
-    // GoogleCharts.load(this.drawChart.bind(this))
+    console.log(this.sweetnessValue)
+    console.log(this.sournessValue)
+    console.log(this.saltinessValue)
+    console.log(this.savorinessValue)
+    GoogleCharts.load(this.drawChart.bind(this))
   }
 
   drawChart() {
     let data = new google.visualization.DataTable();
-    data.addColumn('string', 'Topping');
-    data.addColumn('number', 'Slices');
+    data.addColumn('string', 'Flavor');
+    data.addColumn('number', 'Percentage');
     data.addRows([
-      ['Mushrooms', 3],
-      ['Onions', 1],
-      ['Olives', 1],
-      ['Zucchini', 1],
-      ['Pepperoni', 2]
+      ['Sweetness', this.sweetnessValue],
+      ['Sourness', this.sournessValue],
+      ['Saltiness', this.saltinessValue],
+      ['Savoriness', this.savorinessValue],
+      ['Bitterness', this.bitternessValue],
+      ['Spiciness', this.spicinessValue],
+      ['Fattiness', this.fattinessValue]
     ]);
-
     let options = {'title':'How Much Pizza I Ate Last Night',
                  'width':400,
                  'height':300};
 
-    let chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+    let chart = new google.visualization.PieChart(this.chartTarget);
+
+    chart.draw(data)
   }
 }
-<script type="text/javascript">
-
-// Load the Visualization API and the corechart package.
-google.charts.load('current', {'packages':['corechart']});
-
-// Set a callback to run when the Google Visualization API is loaded.
-google.charts.setOnLoadCallback(drawChart);
-
-// Callback that creates and populates a data table,
-// instantiates the pie chart, passes in the data and
-// draws it.
-function drawChart() {
-
-  // Create the data table.
-
-
-  // Set chart options
-
-
-  // Instantiate and draw our chart, passing in some options.
-
-  chart.draw(data, options);
-}
-</script>

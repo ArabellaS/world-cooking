@@ -31,6 +31,6 @@ class FlavorProfilesController < ApplicationController
   private
 
   def flavor_profile_params
-    params.require(:flavor_profile).permit(:saltiness, :sourness, :savoriness, :sweetness, :bitterness, :spiciness)
+    params.require(:flavor_profile).permit(:saltiness, :sourness, :savoriness, :sweetness, :bitterness, :spiciness, :fattiness)
   end
 end
