@@ -15,9 +15,10 @@ export default class extends Controller {
     .then(response => response.text())
     .then((data) => {
       this.cardTarget.innerHTML = `${data}`
+      console.log(data)
     })
-    // .then(data => console.log(data))
-    // .then(data => this.cardTarget.innerHTML = `<p>${data}</p>`)
-    // .catch(error => console.log(error));
+    .catch(error => console.log(error))
+
+    console.log("end submit")
   }
 }
