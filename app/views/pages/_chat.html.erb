@@ -1,5 +1,5 @@
 <ul>
-  <% message.all.each do |recipe|%>
+  <% message.each do |recipe|%>
     <li><small><%= link_to recipe.name, proposed_recipes_path(recipe: recipe.id), data: { 'turbo-method': :post }, style:"color: white;" %></small></li>
   <% end %>
 </ul>
