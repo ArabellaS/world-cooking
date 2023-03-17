@@ -36,7 +36,7 @@ export default class extends Controller {
       ['Spiciness', this.spicinessValue],
       ['Fattiness', this.fattinessValue]
     ]);
-    let options = {'colors' :["#00CCFF", "#CC8899", "#00FF7F", "#E52B50", "#3B00DB", "#FF4F00", "#FFFF00"],
+    let options = {'colors' :["#00CCFF", "#CC8899", "#1E4D2B", "#E52B50", "#3B00DB", "#FF4F00", "#FFFF00"],
                   'width':800,
                   'height':600};
     console.log(options)
