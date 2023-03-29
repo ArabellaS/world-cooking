@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, only: [:home, :get_card]
 
   def home
     if params[:query].present?
@@ -13,7 +13,7 @@ class PagesController < ApplicationController
       @recipes = Recipe.all
       @places = Place.all
     end
-    
+
    @markers = @places.geocoded.map do |place|
       {
         lat: place.lat,
