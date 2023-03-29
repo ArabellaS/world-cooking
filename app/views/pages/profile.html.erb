@@ -10,14 +10,18 @@
   <% end %>
 </div>
 <div class="containeur-profile">
-  <div id="myPieChart" data-controller='chart' data-chart-target="chart"
-    data-chart-sweetness-value='<%= current_user.flavor_profile.sweetness %>'
-    data-chart-sourness-value='<%= current_user.flavor_profile.sourness %>'
-    data-chart-saltiness-value='<%= current_user.flavor_profile.saltiness %>'
-    data-chart-savoriness-value='<%= current_user.flavor_profile.savoriness %>'
-    data-chart-bitterness-value='<%= current_user.flavor_profile.bitterness %>'
-    data-chart-spiciness-value='<%= current_user.flavor_profile.spiciness %>'
-    data-chart-fattiness-value='<%= current_user.flavor_profile.fattiness %>' ></div>
+  <% if current_user.flavor_profile.present? %>
+       <div id="myPieChart" data-controller='chart' data-chart-target="chart"
+      data-chart-sweetness-value='<%= current_user.flavor_profile.sweetness %>'
+      data-chart-sourness-value='<%= current_user.flavor_profile.sourness %>'
+      data-chart-saltiness-value='<%= current_user.flavor_profile.saltiness %>'
+      data-chart-savoriness-value='<%= current_user.flavor_profile.savoriness %>'
+      data-chart-bitterness-value='<%= current_user.flavor_profile.bitterness %>'
+      data-chart-spiciness-value='<%= current_user.flavor_profile.spiciness %>'
+      data-chart-fattiness-value='<%= current_user.flavor_profile.fattiness %>' ></div>
+  <% else %>
+      <%= link_to "Complete your flavor profile !", new_flavor_profile_path %>
+  <% end %>
   <div class="recipes-user">
     <h3>Favourite recipes :</h3>
     <ul>
