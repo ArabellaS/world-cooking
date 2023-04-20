@@ -30,6 +30,12 @@ gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
 
+#Pundit for authorization
+gem "pundit"
+
+#Act as Taggable
+gem 'acts-as-taggable-on', '~> 9.0'
+
 #Geocoder
 gem "geocoder"
 
