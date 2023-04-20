@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_16_092504) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_20_130559) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,12 +40,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_16_092504) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
-  end
-
-  create_table "categories", force: :cascade do |t|
-    t.string "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "feedbacks", force: :cascade do |t|
@@ -133,15 +127,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_16_092504) do
     t.index ["place_id"], name: "index_recipes_on_place_id"
   end
 
-  create_table "tags", force: :cascade do |t|
-    t.bigint "recipe_id", null: false
-    t.bigint "category_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_tags_on_category_id"
-    t.index ["recipe_id"], name: "index_tags_on_recipe_id"
-  end
-
   create_table "used_ins", force: :cascade do |t|
     t.bigint "place_id", null: false
     t.string "usable_type"
@@ -181,7 +166,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_16_092504) do
   add_foreign_key "quantities", "ingredients"
   add_foreign_key "quantities", "recipes"
   add_foreign_key "recipes", "places"
-  add_foreign_key "tags", "categories"
-  add_foreign_key "tags", "recipes"
   add_foreign_key "used_ins", "places"
 end
