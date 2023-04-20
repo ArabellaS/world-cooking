@@ -14,7 +14,7 @@ def handle_wit_message(message)
   p response
   # intent = response['intents'][0]['name']  # Extract the intent from the response
   entities = response['entities']      # Extract the entities from the response
-  
+
   intent = entities.keys[0].split(':')[0]
 
   case intent
@@ -24,9 +24,6 @@ def handle_wit_message(message)
   when 'wit_country'
     value = entities["#{intent}:#{intent}"][-1]['value']
     Recipe.joins(:place).where('places.country = ?', value).sample(4)
-  when 'wit_category'
-    value = entities["#{intent}:#{intent}"][-1]['value']
-    Recipe.joins(:categories).where('categories.content ILIKE ?', "%#{value}%").sample(4)
   when 'wit_ingredient'
     value = entities["#{intent}:#{intent}"][-1]['value']
     Recipe.joins(:ingredients).where('ingredients.name ILIKE ?', "%#{value}%").sample(4)
