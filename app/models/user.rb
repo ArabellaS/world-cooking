@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :recipes, through: :feedbacks
   has_one :flavor_profile
   has_many :proposed_recipes
+
+  validates_presence_of :name
 end
