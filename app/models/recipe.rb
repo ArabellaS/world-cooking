@@ -16,7 +16,4 @@ class Recipe < ApplicationRecord
                     tsearch: { prefix: true }
                   }
 
-  def has_ratings?
-    recipe.fattiness
-  end
 end
