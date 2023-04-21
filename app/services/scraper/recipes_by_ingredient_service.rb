@@ -12,14 +12,10 @@ class Scraper::RecipesByIngredientService
 
   def perform
     html = URI.open("https://www.allrecipes.com/search?q=#{@ingredient}").read
-    # 1. Parse HTML
     doc = Nokogiri::HTML.parse(html, nil, "utf-8")
     results = []
-    # 2. Search the Nokogiri document by identifying the cards
     doc.search(".mntl-card-list-items.card").each do |element|
-      # 3 Go through actual recipes and not blog articles - recipes are the cards with a rating
       unless element.search(".recipe-card-meta__rating-count-number").empty?
-        # 4. Create recipe and store it in results
         name = element.search(".card__title-text").text.strip
         # rating = element.search(".icon.icon-star").count + element.search(".icon.icon-star-half").count * 0.5
         details_url = element.attribute("href").value

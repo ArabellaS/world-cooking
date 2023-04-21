@@ -9,7 +9,6 @@ export default class extends Controller {
     document.querySelectorAll('.flip-card').forEach((card) => {
       card.classList.add('display-none')
     })
-    // this.element.nextElementSibling.classList.remove('display-none')
     this.#createCard(placeId, transform)
   }
 

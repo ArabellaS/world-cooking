@@ -17,10 +17,8 @@ export default class extends Controller {
     })
 
     this.map.setRenderWorldCopies(false)
-    // disable map rotation using right click + drag
     this.map.dragRotate.disable();
 
-    // disable map rotation using touch rotation gesture
     this.map.touchZoomRotate.disableRotation();
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
@@ -35,15 +33,11 @@ export default class extends Controller {
   #addMarkersToMap() {
 
     this.markersValue.forEach((marker) => {
-      // Create a HTML element for your custom marker
       const customMarker = document.createElement("div")
       customMarker.innerHTML = marker.marker_html
-      // const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
-      // Pass the element as an argument to the new marker
       new mapboxgl.Marker(customMarker)
       .setLngLat([marker.lng, marker.lat])
       .addTo(this.map)
-        // .setPopup(popup)
     })
   }
 

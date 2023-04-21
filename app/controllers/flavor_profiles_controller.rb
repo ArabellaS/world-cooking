@@ -1,4 +1,5 @@
 class FlavorProfilesController < ApplicationController
+  before_action :set_flavor_profile, only: [:edit, :update]
 
   def new
     @flavor_profile = FlavorProfile.new
@@ -16,11 +17,9 @@ class FlavorProfilesController < ApplicationController
   end
 
   def edit
-    @flavor_profile = FlavorProfile.find(params[:id])
   end
 
   def update
-    @flavor_profile = FlavorProfile.find(params[:id])
     if @flavor_profile.update(flavor_profile_params)
       redirect_to profile_path
     else
@@ -29,6 +28,10 @@ class FlavorProfilesController < ApplicationController
   end
 
   private
+
+  def set_flavor_profile
+    @flavor_profile = FlavorProfile.find(params[:id])
+  end
 
   def flavor_profile_params
     params.require(:flavor_profile).permit(:saltiness, :sourness, :savoriness, :sweetness, :bitterness, :spiciness, :fattiness)
