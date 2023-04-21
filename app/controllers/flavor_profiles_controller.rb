@@ -31,6 +31,7 @@ class FlavorProfilesController < ApplicationController
 
   def set_flavor_profile
     @flavor_profile = FlavorProfile.find(params[:id])
+  end
 
   def flavor_profile_params
     params.require(:flavor_profile).permit(:saltiness, :sourness, :savoriness, :sweetness, :bitterness, :spiciness, :fattiness)
