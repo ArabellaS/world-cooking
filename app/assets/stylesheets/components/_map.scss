@@ -29,16 +29,27 @@
   height: 100vh;
 }
 
-.form {
-  margin: 1.3rem;
-  position: absolute;
-  bottom: 0.1rem;
-  width: 50%;
+.navbar {
+  background-color: #F28500;
   z-index: 3;
+  padding-top: 0.5rem;
+  border: 1px solid #CD5700;
+  box-shadow: 1px 1px 3px #C04000;
+  position: relative;
+  height: 10vh;
+  padding-bottom: 0.3rem;
+}
+
+.form {
+  position: absolute;
+  width: 85%;
 }
 
 .search {
   display: flex;
+  position: relative;
+  left: 3rem;
+
 }
 
 .input {
@@ -78,10 +89,10 @@
 
 .menu-btn {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  right: 1rem;
+  top: 0.5rem;
   cursor: pointer;
-  z-index: 3;
+  display:inline
 }
 
 .display-none {
@@ -114,8 +125,8 @@
 
 #chatbot-button {
   position: fixed;
-  top: 20px;
-  right: 20px;
+  bottom: 1.3rem;
+  right: 1.5rem;
   background-color: #0084ff;
   color: #fff;
   border: none;
