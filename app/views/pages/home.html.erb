@@ -18,7 +18,7 @@
         <% if current_user.name == "alexis" || current_user.name == "cecile" || current_user.name == "ouss" %>
           <%= image_tag "users/#{current_user.name}.png", :style => "width:4em;" %>
         <% else %>
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "rounded-circle img-fluid" , :style => "width:7em;" %>
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "rounded-circle img-fluid" , :style => "width:4'em;" %>
         <% end %>
       <ul data-menu-target="menu" class="menu display-none">
         <li><%= link_to "Profile", profile_path %></li>
@@ -28,10 +28,10 @@
         <% end %></li>
       </ul>
     <% else %>
-      <%= link_to new_user_session_path do %>
-        <i class="fa-solid fa-right-to-bracket"></i>
-      <% end %>
-      <%= link_to "Sign up", new_user_registration_path %>
+      <ul class="signup">
+        <li><%= link_to "Sign in", new_user_session_path %></li>
+        <li><%= link_to "Sign up", new_user_registration_path %></li>
+      </ul>
     <% end %>
   </div>
     <% if user_signed_in? %>
