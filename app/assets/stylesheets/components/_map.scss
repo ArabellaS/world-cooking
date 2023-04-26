@@ -89,13 +89,24 @@
 .menu-btn {
   position: fixed;
   right: 1rem;
-  top: 0.5rem;
   cursor: pointer;
-  display:inline
+  display: flex;
+  flex-direction: column;
 }
 
 .display-none {
   display: none;
+}
+
+.signup {
+  position: relative;
+  top: -1rem;
+  margin-left: 0;
+}
+
+.signup a {
+  color: white;
+  text-decoration: none;
 }
 
 .menu {
@@ -121,6 +132,7 @@
 .menu li:hover {
   background-color: #FFBF00;
 }
+
 
 #chatbot-button {
   position: fixed;
