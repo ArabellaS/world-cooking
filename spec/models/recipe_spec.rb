@@ -13,6 +13,8 @@ RSpec.describe Recipe, :type => :model do
         expect(build(:recipe, spiciness: nil)).not_to be_valid
         expect(build(:recipe, bitterness: nil)).not_to be_valid
         expect(build(:recipe, fattiness: nil)).not_to be_valid
+        expect(build(:recipe, saltiness: -1)).not_to be_valid
+        expect(build(:recipe, saltiness: 6)).not_to be_valid
       end
     end
     context "when valid" do
