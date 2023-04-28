@@ -15,4 +15,10 @@ class Place < ApplicationRecord
     localisation << country
     "#{localisation.join(", ")}"
   end
+
+  def self.collection
+    Place.all.map do |place|
+      [place.address, place.id]
+    end
+  end
 end
