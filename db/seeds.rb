@@ -32,3 +32,4 @@ Recipe.all.each do |recipe|
 end
 
 p "Seeds done."
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
