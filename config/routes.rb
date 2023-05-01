@@ -16,7 +16,8 @@ Rails.application.routes.draw do
 
   resources :feedbacks, only: [:new, :create]
 
-  resources :recipes, only: [:index, :show]
+  resources :recipes
+  #, only: [:index, :show, ]
 
   resources :places, only: :index
 

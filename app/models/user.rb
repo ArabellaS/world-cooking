@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :recipes, through: :feedbacks
+  has_many :recipes
+  #, through: :feedbacks
   has_one :flavor_profile
   has_many :proposed_recipes
 

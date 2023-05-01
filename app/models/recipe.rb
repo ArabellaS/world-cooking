@@ -1,11 +1,13 @@
 class Recipe < ApplicationRecord
   belongs_to :place, optional: true
+  belongs_to :user
 
   has_many :quantities
   has_many :ingredients, through: :quantities
   has_one_attached :photo, dependent: :purge
 
-  validates_presence_of :content, :name
+
+  validates_presence_of :content, :name, :place
   validates_presence_of :saltiness, :sweetness, :savoriness, :sourness,
                          :spiciness, :bitterness, :fattiness
   validates_inclusion_of :saltiness, :sweetness, :savoriness, :sourness,

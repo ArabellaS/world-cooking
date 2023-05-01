@@ -20,7 +20,7 @@ class FlavorProfilesController < ApplicationController
   end
 
   def update
-    if @flavor_profile.update(flavor_profile_params)
+    if @recipe.update(recipe_params)
       redirect_to profile_path
     else
       render :edit, status: :unprocessable_entity

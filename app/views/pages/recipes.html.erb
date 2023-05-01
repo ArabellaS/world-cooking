@@ -1,0 +1,11 @@
+<%= link_to root_path, class:"btn-home" do %>
+  <i class="fa-solid fa-house"></i>
+<% end %>
+<div class="how-img">
+  <% if current_user.name == "alexis" || current_user.name == "cecile" || current_user.name == "ouss" %>
+    <%= image_tag "users/#{current_user.name}.png", class: "rounded-circle img-fluid", :style => "width:6em" %>
+  <% else %>
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "rounded-circle img-fluid" %>
+  <% end %>
+</div>
+</div>
