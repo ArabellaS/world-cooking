@@ -1,4 +1,4 @@
-class Quantity < ApplicationRecord
+class RecipeElement < ApplicationRecord
   belongs_to :ingredient
   belongs_to :recipe
 
