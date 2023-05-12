@@ -1,6 +1,6 @@
 ActiveAdmin.register Recipe do
 
-  permit_params :content, :place_id, :name, :sourness, :spiciness, :saltiness, :savoriness, :sweetness, :bitterness, :fattiness, quantities_attributes: [ :id, :field_name, :text, :_destroy ]
+  permit_params :content, :place_id, :name, :sourness, :spiciness, :saltiness, :savoriness, :sweetness, :bitterness, :fattiness, quantities_attributes: [ :id, :_destroy, :ingredient_id, :amount, :unit ]
 
   form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs do
@@ -18,6 +18,7 @@ ActiveAdmin.register Recipe do
 
       f.inputs "quantities" do
         f.has_many :quantities, heading: true, allow_destroy: true do |quantity|
+          quantity.input :ingredient, :as => :select, :collection => Ingredient.collection, null: false
           quantity.input :amount, null: false
           quantity.input :unit, null: false
         end

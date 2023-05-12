@@ -5,7 +5,7 @@ class Recipe < ApplicationRecord
   has_many :ingredients, through: :quantities
   has_one_attached :photo, dependent: :purge
 
-  accepts_nested_attributes_for :quantities
+  accepts_nested_attributes_for :quantities, allow_destroy: true
 
   validates_presence_of :content, :name
   validates_presence_of :saltiness, :sweetness, :savoriness, :sourness,
