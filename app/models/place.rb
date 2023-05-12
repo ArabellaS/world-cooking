@@ -23,5 +23,4 @@ class Place < ApplicationRecord
       [place.address, place.id]
     end
   end
-
 end

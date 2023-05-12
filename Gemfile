@@ -98,6 +98,7 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'rails-controller-testing'
+  gem 'pry'
 end
 
 group :development do

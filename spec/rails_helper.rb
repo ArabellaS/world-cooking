@@ -9,6 +9,8 @@ require 'factory_bot_rails'
 require 'capybara/rspec'
 require 'database_cleaner'
 require_relative "./support/devise"
+ActiveJob::Base.queue_adapter = :test
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
