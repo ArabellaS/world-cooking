@@ -62,7 +62,7 @@ class Scraper::RecipesByCountryService
         ## photo : ##
         recipe.photo.attach(io: photo, filename: "#{recipe.name}_photo", content_type: 'image/*')
 
-        ######## Ingredient & Quantity ########
+        ######## Ingredient & RecipeElement ########
 
         directions_ingre = details_doc.search('.comp.mntl-structured-ingredients')[0]
 
@@ -81,7 +81,7 @@ class Scraper::RecipesByCountryService
 
           ingredient.places << @place
 
-          Quantity.create(unit: unit, amount: amount, ingredient: ingredient, recipe: recipe)
+          RecipeElement.create(unit: unit, amount: amount, ingredient: ingredient, recipe: recipe)
         end
       end
 

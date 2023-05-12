@@ -20,11 +20,11 @@
   <div class="recipe-content">
     <p>Ingredients :</p>
     <small>
-      <% @recipe.quantities.each do |quantity|%>
-        <% if quantity.amount != 0 %>
-          <%= quantity.amount %>
-          <%= quantity.unit %>
-          <%= quantity.ingredient.name %>
+      <% @recipe.recipe_elements.each do |recipe_element|%>
+        <% if recipe_element.amount != 0 %>
+          <%= recipe_element.amount %>
+          <%= recipe_element.unit %>
+          <%= recipe_element.ingredient.name %>
           <br>
         <% end %>
       <% end %>
