@@ -21,6 +21,12 @@ gem "jsbundling-rails"
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
 
+# Active-Admin
+gem "activeadmin"
+
+# Country-select for ACtive-Admin
+gem 'country_select', '~> 8.0'
+
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 
