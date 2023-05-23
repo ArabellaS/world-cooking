@@ -2,6 +2,7 @@
   <div class="row justify-content-center">
   <div class="col-6">
   <%= simple_form_for(@recipe) do |f| %>
+  <#%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
     <div class="form-inputs">

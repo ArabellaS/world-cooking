@@ -7,7 +7,7 @@ class Recipe < ApplicationRecord
   has_one_attached :photo, dependent: :purge
 
 
-  validates_presence_of :content, :name, :place
+  validates_presence_of :content, :name, :place, :user
   validates_presence_of :saltiness, :sweetness, :savoriness, :sourness,
                          :spiciness, :bitterness, :fattiness
   validates_inclusion_of :saltiness, :sweetness, :savoriness, :sourness,
